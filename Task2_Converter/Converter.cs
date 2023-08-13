@@ -4,10 +4,14 @@
     {
         public static double Rate { get; set; }
 
-        public Converter(double rate) =>
-            Rate = rate;
+        public double Amount { get; set; }
 
-        public double ConvertCurrency(double amount) =>
-            amount * Rate;
+        public Converter(double amount)
+        {
+            Amount = amount;
+        }
+
+        public double ConvertCurrency() =>
+            Amount * Rate;
     }
 }

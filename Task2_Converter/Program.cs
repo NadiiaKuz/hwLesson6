@@ -4,16 +4,23 @@
     {
         static void Main(string[] args)
         {
-            Console.Write("Input rate UAH to USD: ");
-            double rate = Convert.ToDouble(Console.ReadLine());
-            
-            Console.Write("Input amount UAH: ");
-            double anount = Convert.ToDouble(Console.ReadLine());
+            Converter.Rate = 30.5;
 
-            Converter converter = new Converter(rate);
-            double rounded = Math.Round(converter.ConvertCurrency(anount), 2);
+            var converter1 = new Converter(1300);
+            var result1 = converter1.ConvertCurrency();
+            Console.WriteLine(result1);
 
-            Console.WriteLine($"You will get {rounded} USD");
+            var converter2 = new Converter(1500);
+            var result2 = converter2.ConvertCurrency();
+            Console.WriteLine(result2);
+
+            Converter.Rate = 31.5;
+
+            result1 = converter1.ConvertCurrency();
+            Console.WriteLine(result1);
+
+            result2 = converter2.ConvertCurrency();
+            Console.WriteLine(result2);
 
             Console.ReadLine();
         }
